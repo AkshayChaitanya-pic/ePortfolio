@@ -1,0 +1,86 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Load tidyverse and palmerpenguins libraries
+
+# Create a ggplot scatter plot using the penguins dataset.
+
+# Plot bill_length_mm on the x-axis and bill_depth_mm on the y-axis.
+
+# Color points by species and use geom_point with size 3.
+
+# Add a minimal theme and clean labels.
+
+```{r}
+library("tidyverse")
+library("palmerpenguins")
+```
+
+# Create a ggplot scatter plot using the penguins dataset.
+
+# Plot bill_length_mm on the x-axis and bill_depth_mm on the y-axis.
+
+# Color points by species and use geom_point with size 3.
+
+# Add a minimal theme and clean labels.
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm
+, color = species)) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Bill Length vs Bill Depth of Penguins",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       color = "Species")
+```
+
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm ,
+color = species)) + geom_point(size = 3) + theme_minimal() + labs(title
+= "Bill Length vs Bill Depth of Penguins", x = "Bill Length (mm)", y =
+"Bill Depth (mm)", color = "Species")
+
+# Create a boxplot to visualize the distribution of flipper_length_mm for each species.
+
+# Use geom_boxplot and fill the boxes by species.
+
+```{r}
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm,
+, fill = species)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(title = "Distribution of Flipper Length by Species",
+       x = "Species",
+       y = "Flipper Length (mm)",
+       fill = "Species")
+```
+
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm, , fill =
+species)) + geom_boxplot() + theme_minimal() + labs(title =
+"Distribution of Flipper Length by Species", x = "Species", y = "Flipper
+Length (mm)", fill = "Species")
+
+# Create a histogram to visualize the distribution of body_mass_g.
+
+# Use geom_histogram with bins set to 30 and fill the bars by species.
+
+```{r}
+ggplot(data = penguins, aes(x = body_mass_g, fill = species)) +
+  geom_histogram(bins = 30, alpha = 0.7, position =
+ "identity") +
+  theme_minimal() +
+  labs(title = "Distribution of Body Mass of Penguins",
+       x = "Body Mass (g)",
+       y = "Count",
+       fill = "Species")
+```
+
+ggplot(data = penguins, aes(x = body_mass_g, fill = species)) +
+geom_histogram(bins = 30, alpha = 0.7, position = "identity") +
+theme_minimal() + labs(title = "Distribution of Body Mass of Penguins",
+x = "Body Mass (g)", y = "Count", fill = "Species")
+
+usethis::use_git()
